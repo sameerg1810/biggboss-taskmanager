@@ -1,0 +1,60 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment and secrets
+
+*.pem
+*.key
+*.crt
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Version control
+.git/
+.gitignore
+.svn/
+.hg/
+
+# Build and output directories
+dist/
+build/
+out/
+tmp/
+temp/
+
+# Test and debug artifacts
+test/
+tests/
+debug/
+*.log
+
+# Documentation and markdown
+README*
+*.md
+docs/
+
+# Docker and Compose files
+Dockerfile*
+docker-compose*
+
+# Local and config overrides
+.local/
+local/
+config.local.*
+*.local.yml
+
+# Video and large media files
+public/assets/*.mp4
+
+# Miscellaneous
+*.tmp
+
+# Exclude the .dockerignore itself!
+!.dockerignore

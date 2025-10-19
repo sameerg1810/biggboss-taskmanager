@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biggboss-tasks
+  labels:
+    app: biggboss-tasks
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: biggboss-tasks
+  template:
+    metadata:
+      labels:
+        app: biggboss-tasks
+    spec:
+      containers:
+      - name: biggboss-tasks
+        image: sameergorrepati/biggboss-tasks:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        env:
+        - name: MONGO_URI
+          value: mongodb+srv://sameerg1810_db_user:sameer1810@cluster0.4nqw9dt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+        - name: REDIS_URL
+          value: redis://default:EZJcGutxzhrRlexq9dE4oikl1RwIXHJW@redis-19082.c11.us-east-1-2.ec2.redns.redis-cloud.com:19082
+        - name: JWT_SECRET
+          value: the_spacex_revolution
+        - name: ADMIN_EMAIL
+          value: admin@todo.com
+        - name: ADMIN_PASSWORD
+          value: admin@123

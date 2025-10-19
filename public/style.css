@@ -1,0 +1,440 @@
+/* ================================================
+   🌿 GLOBAL THEME VARIABLES
+================================================ */
+:root {
+    --primary-color: #1abc9c;
+    --primary-hover: #16a085;
+    --secondary-color: #3498db;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --light-bg: #f8f9fa;
+    --dark-text: #2c3e50;
+    --grey-text: #7f8c8d;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --border-color: #dcdfe3;
+}
+
+/* ================================================
+   🧭 RESET & BASE STYLES
+================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+    background: url("./assets/website_background.png") center/cover no-repeat fixed;
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ================================================
+   🧱 LAYOUT
+================================================ */
+.page-wrapper {
+    width: 100%;
+    max-width: 700px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px var(--shadow-color);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out forwards;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ================================================
+   🔝 HEADER
+================================================ */
+#app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--dark-text), #1b2631);
+    color: var(--light-bg);
+    padding: 16px 25px;
+    letter-spacing: 0.3px;
+}
+
+#user-name {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.btn-logout {
+    background: var(--danger-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: var(--danger-hover);
+    transform: translateY(-2px);
+}
+
+/* ================================================
+   🧾 MAIN CONTENT
+================================================ */
+main {
+    padding: 35px 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark-text);
+    letter-spacing: 0.5px;
+}
+
+main>p {
+    color: var(--grey-text);
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+}
+
+/* ================================================
+   ✍️ INPUT AREA
+================================================ */
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding: 18px;
+    background: var(--light-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#task-input,
+#description-input,
+#category-select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+    color: var(--dark-text);
+    transition: all 0.3s ease;
+}
+
+#task-input:focus,
+#description-input:focus,
+#category-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25);
+    outline: none;
+}
+
+#add-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 188, 156, 0.3);
+}
+
+/* ================================================
+   📋 LIST CONTAINER (Tabs & Cards)
+================================================ */
+#list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.task-section {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    padding: 20px 18px;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.task-section:hover {
+    transform: translateY(-3px);
+}
+
+.task-section h2 {
+    font-size: 1.25rem;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+/* ================================================
+   ✅ TO-DO LIST
+================================================ */
+#todo-list,
+#pending-list,
+#completed-list {
+    list-style: none;
+    max-height: 340px;
+    overflow-y: auto;
+    padding-right: 8px;
+    scroll-behavior: smooth;
+}
+
+#todo-list li,
+#pending-list li,
+#completed-list li {
+    background: #fff;
+    margin-bottom: 12px;
+    padding: 15px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(44, 62, 80, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+    animation: slideUp 0.4s ease;
+    transition: all 0.25s ease;
+}
+
+#pending-list li:hover,
+#completed-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+#completed-list li {
+    background: rgba(26, 188, 156, 0.1);
+    border-left: 4px solid var(--primary-color);
+}
+
+#completed-list li .task-name {
+    text-decoration: line-through;
+    color: var(--grey-text);
+    opacity: 0.8;
+}
+
+/* ================================================
+   🧩 TASK CONTENT
+================================================ */
+.task-content {
+    flex-grow: 1;
+}
+
+.task-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.task-description {
+    font-size: 0.9rem;
+    color: var(--grey-text);
+    margin-top: 3px;
+}
+
+/* ================================================
+   🧩 TASK BUTTONS
+================================================ */
+.task-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 12px;
+    align-items: center;
+}
+
+.task-buttons button {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--grey-text);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.task-buttons .edit-btn:hover {
+    color: var(--secondary-color);
+    transform: scale(1.15);
+}
+
+.task-buttons .delete-btn:hover {
+    color: var(--danger-color);
+    transform: scale(1.15);
+}
+
+/* ================================================
+   💬 MODAL
+================================================ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #fff;
+    color: var(--dark-text);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 440px;
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+#edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-form label {
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+#edit-form input,
+#edit-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#edit-form input:focus,
+#edit-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25);
+    outline: none;
+}
+
+.btn-save {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-save:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* ================================================
+   ✨ ANIMATIONS
+================================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================================
+   🎚️ CUSTOM SCROLLBAR
+================================================ */
+#todo-list::-webkit-scrollbar,
+#pending-list::-webkit-scrollbar,
+#completed-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#todo-list::-webkit-scrollbar-thumb,
+#pending-list::-webkit-scrollbar-thumb,
+#completed-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 8px;
+}
+
+#todo-list::-webkit-scrollbar-thumb:hover,
+#pending-list::-webkit-scrollbar-thumb:hover,
+#completed-list::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
+
+/* ================================================
+   🧠 ACCESSIBILITY
+================================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ================================================
+   🖥️ RESPONSIVE DESIGN
+================================================ */
+@media (min-width: 600px) {
+    .input-area {
+        flex-direction: row;
+        align-items: center;
+    }
+}

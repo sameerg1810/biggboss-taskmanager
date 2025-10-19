@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: biggboss-tasks-service
+spec:
+  selector:
+    app: biggboss-tasks
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: NodePort

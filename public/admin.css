@@ -1,0 +1,216 @@
+/* --- CSS Variables for Admin Theme --- */
+:root {
+    --admin-primary: #3498db;
+    /* Blue for actions */
+    --admin-primary-hover: #2980b9;
+    --admin-danger: #e74c3c;
+    /* Red for logout */
+    --admin-danger-hover: #c0392b;
+    --status-verified: #27ae60;
+    /* Green for 'Verified' */
+    --status-pending: #f39c12;
+    /* Orange for 'Pending' */
+    --dark-bg: #2c3e50;
+    /* Dark blue-grey for header */
+    --light-bg: #ecf0f1;
+    /* Light grey for table rows */
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --shadow-color: rgba(44, 62, 80, 0.15);
+    --border-color: #dfe6e9;
+}
+
+/* --- General Body & Layout --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: url("./assets/website_background.png") center/cover no-repeat fixed;
+    color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
+    /* Wider container for the table */
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* --- Admin Header --- */
+#app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: var(--dark-bg);
+    color: var(--light-bg);
+}
+
+#app-header .user-info {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#user-name {
+    color: var(--status-verified);
+    font-weight: 700;
+}
+
+.btn-logout {
+    background-color: var(--admin-danger);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover,
+.btn-logout:focus-visible {
+    background-color: var(--admin-danger-hover);
+    transform: translateY(-2px);
+    outline: none;
+}
+
+/* --- Main Content & Table --- */
+main {
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--dark-bg);
+}
+
+/* This container makes the table scroll horizontally on small screens */
+#user-list-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#users-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    /* Prevents table from becoming too cramped */
+}
+
+#users-table th,
+#users-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+#users-table thead th {
+    background-color: var(--light-bg);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+#users-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Status & Action Button Styling --- */
+.status {
+    font-weight: 600;
+}
+
+.status.verified {
+    color: var(--status-verified);
+}
+
+.status.pending {
+    color: var(--status-pending);
+}
+
+.btn-verify {
+    background-color: var(--admin-primary);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-verify:hover,
+.btn-verify:focus-visible {
+    background-color: var(--admin-primary-hover);
+    outline: none;
+}
+
+.action-na {
+    color: var(--grey-text);
+    font-style: italic;
+}
+
+/* --- Animations & Accessibility --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .page-wrapper {
+        width: 100%;
+        border-radius: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex-grow: 1;
+        overflow-y: auto;
+        /* Allow the whole main area to scroll if needed */
+    }
+
+    #app-header,
+    main {
+        border-radius: 0;
+    }
+}

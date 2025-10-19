@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./admin.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header id="app-header">
+            <div class="user-info">
+                Admin Panel - Welcome, <span id="user-name"></span>!
+            </div>
+            <button id="logout-btn" class="btn-logout">Logout</button>
+        </header>
+        <main>
+            <h1>User Management</h1>
+            <div id="user-list-container">
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <!-- User rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="./admin.js"></script>
+</body>
+
+</html>

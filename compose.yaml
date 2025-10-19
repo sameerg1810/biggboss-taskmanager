@@ -1,0 +1,40 @@
+services:
+  js-app:
+    build:
+      context: .
+      dockerfile: ./dokerfile  # Note: filename is 'dokerfile', not 'Dockerfile'
+    container_name: js-app
+    restart: unless-stopped
+    init: true
+    ports:
+      - "3000:3000"  # Exposed in Dockerfile
+    depends_on:
+      - redis
+    networks:
+      - appnet
+    env_file: ./.env
+    # If .env does not exist, comment out the above line
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - appnet
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # Uncomment below to persist Redis data
+    # volumes:
+    #   - redis-data:/data
+
+networks:
+  appnet:
+    driver: bridge
+
+# Uncomment below if Redis persistence is needed
+#volumes:
+#  redis-data:
+#    driver: local
