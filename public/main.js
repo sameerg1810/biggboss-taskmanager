@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userNameSpan = document.getElementById("user-name");
 
   // --- API Configuration ---
-  const API_BASE_URL = "http://localhost:5000/api/user"; // Ensure this is correct
+  const API_BASE_URL = "/api/user"; // Ensure this is correct
 
   /**
    * Checks the user's session by calling the /me endpoint. This is the core of the gatekeeper logic.

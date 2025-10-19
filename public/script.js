@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const editTaskName = document.getElementById("edit-task-name");
   const editTaskDesc = document.getElementById("edit-task-desc");
 
-  const API_BASE_URL = "http://localhost:5000/api/todos";
+  const API_BASE_URL = "/api/todos";
 
   // --- Modal Logic ---
   function openEditModal(task) {

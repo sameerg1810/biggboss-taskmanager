@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMessage = document.getElementById("error-message");
 
   // --- API Configuration ---
-  const API_BASE_URL = "http://localhost:5000/api/user"; // Corrected to plural 'users'
+  const API_BASE_URL = "/api/user"; // Corrected to plural 'users'
 
   /**
    * Displays an error message to the user.

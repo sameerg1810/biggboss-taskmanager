@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const userNameSpan = document.getElementById("user-name");
   const usersTbody = document.getElementById("users-tbody");
-  const API_BASE_URL = "http://localhost:5000/api/user";
+  const API_BASE_URL = "/api/user";
 
   /**
    * Fetches the current admin's data to display their name.
