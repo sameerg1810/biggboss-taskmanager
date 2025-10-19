@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev
 COPY . .
 
 # Copy the .env file into the container
-COPY .env .env
+# COPY .env .env
 
 # Create a non-root user for security
 RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
