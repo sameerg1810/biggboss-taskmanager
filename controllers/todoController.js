@@ -1,8 +1,5 @@
 import Todo from "../models/todoModel.js";
 
-// @desc    Get all tasks for a user
-// @route   GET /api/todos
-// @access  Private
 const getTasks = async (req, res) => {
   try {
     // Corrected to use req.user.id
@@ -18,9 +15,6 @@ const getTasks = async (req, res) => {
   }
 };
 
-// @desc    Create a new task
-// @route   POST /api/todos
-// @access  Private
 const createTask = async (req, res) => {
   const { task, description, category } = req.body;
 
@@ -45,9 +39,6 @@ const createTask = async (req, res) => {
   }
 };
 
-// @desc    Update a task
-// @route   PUT /api/todos/:id
-// @access  Private
 const updateTask = async (req, res) => {
   try {
     const todo = await Todo.findById(req.params.id);
@@ -74,9 +65,6 @@ const updateTask = async (req, res) => {
   }
 };
 
-// @desc    Delete a task
-// @route   DELETE /api/todos/:id
-// @access  Private
 const deleteTask = async (req, res) => {
   try {
     const todo = await Todo.findById(req.params.id);

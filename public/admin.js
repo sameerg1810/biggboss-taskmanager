@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const usersTbody = document.getElementById("users-tbody");
   const API_BASE_URL = "/api/user";
 
-  /**
-   * Fetches the current admin's data to display their name.
-   */
+  //Fetches the current admin's data to display their name.
+
   const fetchAdminInfo = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/me`);
@@ -54,9 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /**
-   * Handles the verification of a user.
-   */
+  // Handles the verification of a user.
+
   const handleVerifyUser = async (userId) => {
     if (!confirm("Are you sure you want to verify this user?")) return;
     try {
@@ -73,9 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /**
-   * Handles logout for the admin.
-   */
+  // Handles logout for the admin.
+
   const handleLogout = async () => {
     try {
       await fetch(`${API_BASE_URL}/logout`, { method: "POST" });

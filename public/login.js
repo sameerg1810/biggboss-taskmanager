@@ -8,18 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- API Configuration ---
   const API_BASE_URL = "/api/user"; // Corrected to plural 'users'
 
-  /**
-   * Displays an error message to the user.
-   * @param {string} message - The message to display.
-   */
   function showMessage(message) {
     errorMessage.textContent = message;
     errorMessage.style.color = "red";
   }
 
-  /**
-   * Handles the user login process, including form submission and role-based redirection.
-   */
+  // Handles the user login process, including form submission and role-based redirection.
+
   async function handleLogin(event) {
     event.preventDefault();
     showMessage(""); // Clear any previous messages

@@ -9,11 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- API Configuration ---
   const API_BASE_URL = "/api/user";
 
-  /**
-   * Displays a message to the user.
-   * @param {string} message - The message to display.
-   * @param {boolean} isError - If true, the message is styled as an error.
-   */
   function showMessage(message, isError = true) {
     messageElement.textContent = message;
     messageElement.style.color = isError ? "red" : "green";

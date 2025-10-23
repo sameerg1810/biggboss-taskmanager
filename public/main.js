@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- API Configuration ---
   const API_BASE_URL = "/api/user"; // Ensure this is correct
 
-  /**
-   * Checks the user's session by calling the /me endpoint. This is the core of the gatekeeper logic.
-   */
+  
+   // Checks the user's session by calling the /me endpoint. This is the core of the gatekeeper logic.
+ 
   async function checkUserSession() {
     try {
       // The browser automatically sends the secure HttpOnly cookie with this request.
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /**
-   * Logs the user out by calling the server to clear the session cookie, then redirects.
-   */
+
+   // Logs the user out by calling the server to clear the session cookie, then redirects.
+
   async function handleLogout() {
     try {
       await fetch(`${API_BASE_URL}/logout`, { method: "POST" });

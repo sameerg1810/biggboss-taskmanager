@@ -1,6 +1,5 @@
-/* ================================================
-   🌿 GLOBAL THEME VARIABLES
-================================================ */
+/* GLOBAL THEME VARIABLES */
+
 :root {
     --primary-color: #1abc9c;
     --primary-hover: #16a085;
@@ -15,9 +14,9 @@
     --border-color: #dcdfe3;
 }
 
-/* ================================================
-   🧭 RESET & BASE STYLES
-================================================ */
+
+/* RESET & BASE STYLES */
+
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +34,9 @@ body {
     padding: 20px;
 }
 
-/* ================================================
-   🧱 LAYOUT
-================================================ */
+
+/* LAYOUT */
+
 .page-wrapper {
     width: 100%;
     max-width: 700px;
@@ -50,9 +49,8 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* ================================================
-   🔝 HEADER
-================================================ */
+/* HEADER */
+
 #app-header {
     display: flex;
     justify-content: space-between;
@@ -84,9 +82,9 @@ body {
     transform: translateY(-2px);
 }
 
-/* ================================================
-   🧾 MAIN CONTENT
-================================================ */
+
+/* MAIN CONTENT */
+
 main {
     padding: 35px 30px;
     text-align: center;
@@ -106,9 +104,8 @@ main>p {
     margin-bottom: 28px;
 }
 
-/* ================================================
-   ✍️ INPUT AREA
-================================================ */
+/* INPUT AREA */
+
 .input-area {
     display: flex;
     flex-direction: column;
@@ -158,9 +155,8 @@ main>p {
     box-shadow: 0 6px 16px rgba(26, 188, 156, 0.3);
 }
 
-/* ================================================
-   📋 LIST CONTAINER (Tabs & Cards)
-================================================ */
+
+/* LIST CONTAINER (Tabs & Cards) */
 #list-container {
     display: flex;
     flex-direction: column;
@@ -189,9 +185,9 @@ main>p {
     padding-bottom: 8px;
 }
 
-/* ================================================
-   ✅ TO-DO LIST
-================================================ */
+
+/* TO-DO LIST */
+
 #todo-list,
 #pending-list,
 #completed-list {
@@ -235,9 +231,9 @@ main>p {
     opacity: 0.8;
 }
 
-/* ================================================
-   🧩 TASK CONTENT
-================================================ */
+
+/* TASK CONTENT */
+
 .task-content {
     flex-grow: 1;
 }
@@ -253,9 +249,9 @@ main>p {
     margin-top: 3px;
 }
 
-/* ================================================
-   🧩 TASK BUTTONS
-================================================ */
+
+/* TASK BUTTONS */
+
 .task-buttons {
     display: flex;
     gap: 10px;
@@ -282,9 +278,9 @@ main>p {
     transform: scale(1.15);
 }
 
-/* ================================================
-   💬 MODAL
-================================================ */
+
+/* MODAL */
+
 .modal {
     display: none;
     position: fixed;
@@ -369,9 +365,9 @@ main>p {
     transform: translateY(-2px);
 }
 
-/* ================================================
-   ✨ ANIMATIONS
-================================================ */
+
+/* ANIMATIONS */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -394,9 +390,9 @@ main>p {
     }
 }
 
-/* ================================================
-   🎚️ CUSTOM SCROLLBAR
-================================================ */
+
+/* CUSTOM SCROLLBAR */
+
 #todo-list::-webkit-scrollbar,
 #pending-list::-webkit-scrollbar,
 #completed-list::-webkit-scrollbar {
@@ -416,9 +412,9 @@ main>p {
     background: var(--primary-hover);
 }
 
-/* ================================================
-   🧠 ACCESSIBILITY
-================================================ */
+
+/* ACCESSIBILITY */
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -429,9 +425,8 @@ main>p {
     }
 }
 
-/* ================================================
-   🖥️ RESPONSIVE DESIGN
-================================================ */
+/* RESPONSIVE DESIGN */
+
 @media (min-width: 600px) {
     .input-area {
         flex-direction: row;

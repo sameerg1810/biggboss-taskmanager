@@ -1,10 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
-/**
- * @desc    Middleware to protect routes by verifying JWT
- * @access  Private
- */
 // In middleware/authMiddleware.js
 
 const protect = async (req, res, next) => {
@@ -27,11 +23,6 @@ const protect = async (req, res, next) => {
   }
 };
 
-/**
- * @desc    Middleware to authorize users based on roles
- * @param   {...string} roles - The roles that are allowed to access the route.
- * @access  Private
- */
 const authorize = (...roles) => {
   return (req, res, next) => {
     // This middleware should run AFTER the `protect` middleware
@@ -50,10 +41,7 @@ const authorize = (...roles) => {
     next();
   };
 };
-/**
- * @desc    Middleware to check if the user account is verified
- * @access  Private
- */
+
 const isVerified = (req, res, next) => {
   // This middleware must run AFTER 'protect'
   if (req.user && req.user.isVerified) {
